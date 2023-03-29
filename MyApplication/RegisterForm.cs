@@ -30,18 +30,52 @@ public partial class RegisterForm : Infrastructure.BaseForm
 		string password = passwordTextBox.Text;
 		string fullName = fullNameTextBox.Text;
 
-		if (username.Length < 6)
+		username = Infrastructure.Utility.FixText(text: username);
+		password = Infrastructure.Utility.FixText(text: password);
+		fullName = Infrastructure.Utility.FixText(text: fullName);
+
+		if (username == string.Empty || password == string.Empty)
 		{
 			Infrastructure.MyMessageBox
-				.ErrorMessageBox(text: "the username must be at least 6 characters");
+				.ErrorMessageBox(text: "Username and Password are required!");
+
+			if (username == string.Empty)
+			{
+				usernameTextBox.Focus();
+			}
+			else
+			{
+				passwordTextBox.Focus();
+			}
 
 			return;
 		}
 
+		var errorMessage = string.Empty;
+
+		if (username.Length < 6)
+		{
+			errorMessage =
+				"Username must be at least 6 characters";
+		}
+
 		if (password.Length < 8)
 		{
-			Infrastructure.MyMessageBox
-				.ErrorMessageBox(text: "the password must be at least 8 characters");
+			if (errorMessage != string.Empty)
+			{
+				errorMessage +=
+						System.Environment.NewLine;
+			}
+
+			errorMessage +=
+				"Password must be at least 8 characters";
+		}
+
+		if (errorMessage != string.Empty)
+		{
+			Infrastructure.MyMessageBox.ErrorMessageBox(text: errorMessage);
+
+			usernameTextBox.Focus();
 
 			return;
 		}
@@ -54,23 +88,28 @@ public partial class RegisterForm : Infrastructure.BaseForm
 			databaseContext =
 				new Persistence.DatabaseContext();
 
-			var userWithSameUsername =
+			var foundedUser =
 				databaseContext.Users.
 				Where(current => current.Username.ToLower() == username.ToLower())
 				.FirstOrDefault();
 
-			if (userWithSameUsername != null)
+			if (foundedUser != null)
 			{
-				Infrastructure.MyMessageBox.ErrorMessageBox(text: "the username already exists!");
+				Infrastructure.MyMessageBox
+					.ErrorMessageBox(text: "the username is already exists!");
+
+				usernameTextBox.Focus();
+
 				return;
 			}
 
-			var user = new User(username: username, password: password)
+			var newUser = new Domain.User(username: username, password: password)
 			{
+				IsActive = true,
 				FullName = fullName,
 			};
 
-			databaseContext.Add(user);
+			databaseContext.Add(entity: newUser);
 			databaseContext.SaveChanges();
 
 			var message = $" User '{username}' registered successfully.";
@@ -78,14 +117,15 @@ public partial class RegisterForm : Infrastructure.BaseForm
 			Infrastructure.MyMessageBox.InformationMessageBox(text: message);
 
 			Reset();
+
+			usernameTextBox.Focus();
 		}
+
 		catch (Exception ex)
 		{
-			var errorMessage =
-				$"Error Message: {ex.Message}";
-
-			Infrastructure.MyMessageBox.ErrorMessageBox(text: errorMessage);
+			Infrastructure.MyMessageBox.ErrorMessageBox(text: $"Error Message: {ex.Message}");
 		}
+
 		finally
 		{
 			databaseContext?.Dispose();
