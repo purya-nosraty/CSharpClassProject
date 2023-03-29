@@ -1,17 +1,22 @@
-namespace MyApplication
+namespace MyApplication;
+
+internal static class Program
 {
-    internal static class Program
+    [STAThread]
+    static void Main()
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        // **************************************************
+        var mainForm = new LoginForm();
+
+        System.Windows.Forms.Application.Run(mainForm: mainForm);
+
+        if (mainForm != null)
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm ());
+            if (mainForm.IsDisposed == false)
+            {
+                mainForm.Dispose();
+            }
         }
+        // **************************************************
     }
 }
