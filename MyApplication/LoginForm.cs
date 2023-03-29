@@ -40,7 +40,9 @@ public partial class LoginForm : Infrastructure.BaseForm
 	#region RegisterButton
 	private void RegisterButton_Click(object sender, EventArgs e)
 	{
-
+		RegisterForm registerForm = new RegisterForm();
+		registerForm.Show();
+		this.Hide();
 	}
 	#endregion /RegisterButton
 
@@ -65,8 +67,8 @@ public partial class LoginForm : Infrastructure.BaseForm
 
 		try
 		{
-			databaseContext
-				= new Persistence.DatabaseContext();
+			databaseContext =
+				new Persistence.DatabaseContext();
 		}
 		catch (Exception ex)
 		{
