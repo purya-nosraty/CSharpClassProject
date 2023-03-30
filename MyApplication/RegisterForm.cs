@@ -75,7 +75,14 @@ public partial class RegisterForm : Infrastructure.BaseForm
 		{
 			Infrastructure.MyMessageBox.ErrorMessageBox(text: errorMessage);
 
-			usernameTextBox.Focus();
+			if (username.Length < 6)
+			{
+				usernameTextBox.Focus();
+			}
+			else
+			{
+				passwordTextBox.Focus();
+			}
 
 			return;
 		}
@@ -144,7 +151,9 @@ public partial class RegisterForm : Infrastructure.BaseForm
 	#region LoginButton
 	private void LoginButton_Click(object sender, EventArgs e)
 	{
-
+		LoginForm loginForm = new LoginForm();
+		loginForm.Show();
+		this.Close();
 	}
 	#endregion /LoginButton
 
@@ -152,9 +161,9 @@ public partial class RegisterForm : Infrastructure.BaseForm
 	private void ExitButton_Click(object sender, EventArgs e)
 	{
 		var result =
-					Infrastructure.MyMessageBox.YesNoMessageBox
-					(text: "Are you sure?",
-					caption: "Exit");
+			Infrastructure.MyMessageBox.YesNoMessageBox
+			(text: "Are you sure?",
+			caption: "Exit");
 
 		if (result == DialogResult.Yes)
 		{

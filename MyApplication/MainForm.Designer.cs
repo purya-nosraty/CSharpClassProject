@@ -59,26 +59,30 @@
 			// openToolStripMenuItem1
 			// 
 			openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-			openToolStripMenuItem1.Size = new Size(207, 26);
+			openToolStripMenuItem1.Size = new Size(224, 26);
 			openToolStripMenuItem1.Text = "&Update Profile";
+			openToolStripMenuItem1.Click += OpenToolStripMenuItem1_Click;
 			// 
 			// changePasswordToolStripMenuItem
 			// 
 			changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-			changePasswordToolStripMenuItem.Size = new Size(207, 26);
+			changePasswordToolStripMenuItem.Size = new Size(224, 26);
 			changePasswordToolStripMenuItem.Text = "&Change Password";
+			changePasswordToolStripMenuItem.Click += ChangePasswordToolStripMenuItem_Click;
 			// 
 			// logoutToolStripMenuItem
 			// 
 			logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-			logoutToolStripMenuItem.Size = new Size(207, 26);
+			logoutToolStripMenuItem.Size = new Size(224, 26);
 			logoutToolStripMenuItem.Text = "&Logout";
+			logoutToolStripMenuItem.Click += LogoutToolStripMenuItem_Click;
 			// 
 			// exitToolStripMenuItem
 			// 
 			exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			exitToolStripMenuItem.Size = new Size(207, 26);
+			exitToolStripMenuItem.Size = new Size(224, 26);
 			exitToolStripMenuItem.Text = "&Exit";
+			exitToolStripMenuItem.Click += ExitToolStripMenuItem_Click;
 			// 
 			// adminToolStripMenuItem
 			// 

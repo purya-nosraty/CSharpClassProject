@@ -10,7 +10,8 @@ public static class MyMessageBox
 	{
 		var result = System.Windows.Forms.MessageBox.Show(text: text,
 		   caption: caption, icon: MessageBoxIcon.Question,
-		   buttons: MessageBoxButtons.YesNo);
+		   buttons: MessageBoxButtons.YesNo,
+		   defaultButton: MessageBoxDefaultButton.Button2);
 
 		return result;
 	}

@@ -65,7 +65,7 @@ public partial class LoginForm : Infrastructure.BaseForm
 
 			Infrastructure.MyMessageBox.ErrorMessageBox(text: errorMessage);
 
-			if (usernameLabel.Text == string.Empty)
+			if (usernameTextBox.Text == string.Empty)
 			{
 				usernameTextBox.Focus();
 			}
@@ -94,7 +94,7 @@ public partial class LoginForm : Infrastructure.BaseForm
 				var errorMessage =
 					"Username and/or Password is not correct!";
 
-				Infrastructure.MyMessageBox.ErrorMessageBox (text: errorMessage);
+				Infrastructure.MyMessageBox.ErrorMessageBox(text: errorMessage);
 
 				usernameTextBox.Focus();
 
@@ -119,7 +119,7 @@ public partial class LoginForm : Infrastructure.BaseForm
 				var errorMessage =
 					"You can not login right now! Please contact support.";
 
-				Infrastructure.MyMessageBox.ErrorMessageBox(text:errorMessage);
+				Infrastructure.MyMessageBox.ErrorMessageBox(text: errorMessage);
 
 				usernameTextBox.Focus();
 
