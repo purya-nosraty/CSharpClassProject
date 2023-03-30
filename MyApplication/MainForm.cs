@@ -10,17 +10,34 @@ public partial class MainForm : Form
 		InitializeComponent();
 	}
 
-	private void OpenToolStripMenuItem1_Click(object sender, EventArgs e)
+	private UpdateProfileForm updateProfileForm { get; set; }
+
+	private void UpdateProfileToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		var updateProfileForm = new UpdateProfileForm();
+		if (updateProfileForm == null || updateProfileForm.IsDisposed)
+		{
+			updateProfileForm = new UpdateProfileForm();
+
+			//updateProfileForm.MdiParent = this;
+		}
+
 		updateProfileForm.Show();
 
 	}
 
+	private ChangePasswordForm changePassword { get; set; }
+
+
 	private void ChangePasswordToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		var changePasswordForm = new ChangePasswordForm();
-		changePasswordForm.Show();
+		if (changePassword == null || changePassword.IsDisposed)
+		{
+			changePassword = new ChangePasswordForm();
+
+			//updateProfileForm.MdiParent = this;
+		}
+
+		changePassword.Show();
 	}
 
 	private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)

@@ -31,10 +31,10 @@
 			fullNameLabel = new Dtat.Windows.Forms.Label();
 			fullNameTextBox = new Dtat.Windows.Forms.TextBox();
 			descriptionLabel = new Dtat.Windows.Forms.Label();
-			descriptionListBox = new Dtat.Windows.Forms.ListBox();
 			saveButton = new Dtat.Windows.Forms.Button();
 			resetButton = new Dtat.Windows.Forms.Button();
 			panel1 = new Dtat.Windows.Forms.Panel();
+			descriptionTextBox = new Dtat.Windows.Forms.TextBox();
 			panel1.SuspendLayout();
 			SuspendLayout();
 			// 
@@ -65,16 +65,6 @@
 			descriptionLabel.TabIndex = 2;
 			descriptionLabel.Text = "&Description";
 			// 
-			// descriptionListBox
-			// 
-			descriptionListBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-			descriptionListBox.FormattingEnabled = true;
-			descriptionListBox.ItemHeight = 20;
-			descriptionListBox.Location = new Point(3, 45);
-			descriptionListBox.Name = "descriptionListBox";
-			descriptionListBox.Size = new Size(378, 124);
-			descriptionListBox.TabIndex = 3;
-			// 
 			// saveButton
 			// 
 			saveButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
@@ -98,14 +88,23 @@
 			// panel1
 			// 
 			panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			panel1.Controls.Add(descriptionTextBox);
 			panel1.Controls.Add(fullNameTextBox);
 			panel1.Controls.Add(resetButton);
-			panel1.Controls.Add(descriptionListBox);
 			panel1.Controls.Add(saveButton);
 			panel1.Location = new Point(103, 0);
 			panel1.Name = "panel1";
 			panel1.Size = new Size(384, 223);
 			panel1.TabIndex = 6;
+			// 
+			// descriptionTextBox
+			// 
+			descriptionTextBox.Location = new Point(4, 41);
+			descriptionTextBox.Multiline = true;
+			descriptionTextBox.Name = "descriptionTextBox";
+			descriptionTextBox.ScrollBars = ScrollBars.Vertical;
+			descriptionTextBox.Size = new Size(377, 128);
+			descriptionTextBox.TabIndex = 6;
 			// 
 			// UpdateProfileForm
 			// 
@@ -134,9 +133,9 @@
 		private Dtat.Windows.Forms.Label fullNameLabel;
 		private Dtat.Windows.Forms.TextBox fullNameTextBox;
 		private Dtat.Windows.Forms.Label descriptionLabel;
-		private Dtat.Windows.Forms.ListBox descriptionListBox;
 		private Dtat.Windows.Forms.Button saveButton;
 		private Dtat.Windows.Forms.Button resetButton;
 		private Dtat.Windows.Forms.Panel panel1;
+		private Dtat.Windows.Forms.TextBox descriptionTextBox;
 	}
 }
