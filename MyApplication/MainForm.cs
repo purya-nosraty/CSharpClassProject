@@ -10,7 +10,7 @@ public partial class MainForm : Form
 		InitializeComponent();
 	}
 
-	private UpdateProfileForm updateProfileForm { get; set; }
+	private UpdateProfileForm? updateProfileForm { get; set; }
 
 	private void UpdateProfileToolStripMenuItem_Click(object sender, EventArgs e)
 	{
@@ -25,19 +25,19 @@ public partial class MainForm : Form
 
 	}
 
-	private ChangePasswordForm changePassword { get; set; }
+	private ChangePasswordForm? changePasswordForm { get; set; }
 
 
 	private void ChangePasswordToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		if (changePassword == null || changePassword.IsDisposed)
+		if (changePasswordForm == null || changePasswordForm.IsDisposed)
 		{
-			changePassword = new ChangePasswordForm();
+			changePasswordForm = new ChangePasswordForm();
 
 			//updateProfileForm.MdiParent = this;
 		}
 
-		changePassword.Show();
+		changePasswordForm.Show();
 	}
 
 	private void LogoutToolStripMenuItem_Click(object sender, EventArgs e)

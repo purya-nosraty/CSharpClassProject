@@ -6,7 +6,7 @@ internal static class Program
 	static void Main()
 	{
 		// **************************************************
-		var mainForm = new MainForm();
+		var mainForm = new LoginForm();
 
 		System.Windows.Forms.Application.Run(mainForm: mainForm);
 
