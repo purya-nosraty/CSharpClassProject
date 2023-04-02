@@ -1,5 +1,6 @@
-﻿using System.Linq;
-
+﻿using System;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace MyApplication;
 
@@ -18,7 +19,7 @@ public partial class MainForm : Form
 		{
 			updateProfileForm = new UpdateProfileForm();
 
-			//updateProfileForm.MdiParent = this;
+			updateProfileForm.MdiParent = this;
 		}
 
 		updateProfileForm.Show();
@@ -27,14 +28,13 @@ public partial class MainForm : Form
 
 	private ChangePasswordForm? changePasswordForm { get; set; }
 
-
 	private void ChangePasswordToolStripMenuItem_Click(object sender, EventArgs e)
 	{
 		if (changePasswordForm == null || changePasswordForm.IsDisposed)
 		{
 			changePasswordForm = new ChangePasswordForm();
 
-			//updateProfileForm.MdiParent = this;
+			changePasswordForm.MdiParent = this;
 		}
 
 		changePasswordForm.Show();

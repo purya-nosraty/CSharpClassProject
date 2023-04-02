@@ -1,4 +1,7 @@
-﻿namespace MyApplication
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace MyApplication
 {
 	partial class ChangePasswordForm
 	{
@@ -133,7 +136,7 @@
 			MinimizeBox = false;
 			MinimumSize = new Size(546, 200);
 			Name = "ChangePasswordForm";
-			Text = "ChangePassword";
+			Text = "Change Password";
 			ResumeLayout(false);
 			PerformLayout();
 		}

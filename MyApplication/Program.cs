@@ -1,3 +1,5 @@
+using System;
+
 namespace MyApplication;
 
 internal static class Program

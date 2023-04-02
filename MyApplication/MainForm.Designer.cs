@@ -1,4 +1,7 @@
-﻿namespace MyApplication
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace MyApplication
 {
 	partial class MainForm
 	{
@@ -38,9 +41,7 @@
 			exitToolStripMenuItem = new ToolStripMenuItem();
 			adminToolStripMenuItem = new ToolStripMenuItem();
 			usersToolStripMenuItem = new ToolStripMenuItem();
-			myPictureBox = new PictureBox();
 			myMenuStrip.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)myPictureBox).BeginInit();
 			SuspendLayout();
 			// 
 			// myMenuStrip
@@ -106,25 +107,12 @@
 			usersToolStripMenuItem.Size = new Size(127, 26);
 			usersToolStripMenuItem.Text = "&Users";
 			// 
-			// myPictureBox
-			// 
-			myPictureBox.BackColor = SystemColors.ActiveBorder;
-			myPictureBox.BackgroundImage = (Image)resources.GetObject("myPictureBox.BackgroundImage");
-			myPictureBox.Dock = DockStyle.Fill;
-			myPictureBox.ErrorImage = null;
-			myPictureBox.InitialImage = null;
-			myPictureBox.Location = new Point(0, 28);
-			myPictureBox.Name = "myPictureBox";
-			myPictureBox.Size = new Size(800, 422);
-			myPictureBox.TabIndex = 2;
-			myPictureBox.TabStop = false;
-			// 
 			// MainForm
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
+			BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
 			ClientSize = new Size(800, 450);
-			Controls.Add(myPictureBox);
 			Controls.Add(myMenuStrip);
 			IsMdiContainer = true;
 			MainMenuStrip = myMenuStrip;
@@ -134,7 +122,6 @@
 			WindowState = FormWindowState.Maximized;
 			myMenuStrip.ResumeLayout(false);
 			myMenuStrip.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)myPictureBox).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -148,8 +135,6 @@
 		private ToolStripMenuItem logoutToolStripMenuItem;
 		private ToolStripMenuItem exitToolStripMenuItem;
 		private ToolStripMenuItem usersToolStripMenuItem;
-		private PictureBox pictureBox1;
-		private PictureBox myPictureBox;
 		private ToolStripMenuItem changePasswordToolStripMenuItem;
 		private ToolStripSeparator seperatorToolStripMenuItem;
 	}

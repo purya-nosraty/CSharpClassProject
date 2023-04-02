@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using System;
 using System.Linq;
 
 
@@ -165,7 +165,7 @@ public partial class RegisterForm : Infrastructure.BaseForm
 			(text: "Are you sure?",
 			caption: "Exit");
 
-		if (result == DialogResult.Yes)
+		if (result == System.Windows.Forms.DialogResult.Yes)
 		{
 			System.Windows.Forms.Application.Exit();
 		}

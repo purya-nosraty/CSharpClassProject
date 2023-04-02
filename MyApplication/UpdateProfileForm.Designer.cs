@@ -1,4 +1,7 @@
-﻿namespace MyApplication
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace MyApplication
 {
 	partial class UpdateProfileForm
 	{
@@ -55,6 +58,7 @@
 			fullNameTextBox.Name = "fullNameTextBox";
 			fullNameTextBox.Size = new Size(377, 27);
 			fullNameTextBox.TabIndex = 1;
+			fullNameTextBox.TextChanged += FullNameTextBox_TextChanged;
 			// 
 			// descriptionLabel
 			// 
@@ -74,6 +78,7 @@
 			saveButton.TabIndex = 4;
 			saveButton.Text = "&Save";
 			saveButton.UseVisualStyleBackColor = true;
+			saveButton.Click += SaveButton_Click;
 			// 
 			// resetButton
 			// 
@@ -84,6 +89,7 @@
 			resetButton.TabIndex = 5;
 			resetButton.Text = "&Reset";
 			resetButton.UseVisualStyleBackColor = true;
+			resetButton.Click += ResetButton_Click;
 			// 
 			// panel1
 			// 
@@ -105,6 +111,7 @@
 			descriptionTextBox.ScrollBars = ScrollBars.Vertical;
 			descriptionTextBox.Size = new Size(377, 128);
 			descriptionTextBox.TabIndex = 6;
+			descriptionTextBox.TextChanged += DescriptionTextBox_TextChanged;
 			// 
 			// UpdateProfileForm
 			// 

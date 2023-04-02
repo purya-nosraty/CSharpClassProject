@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace MyApplication;
 
@@ -169,7 +170,7 @@ public partial class LoginForm : Infrastructure.BaseForm
 			Infrastructure.MyMessageBox.YesNoMessageBox(text: "Are you sure?",
 			caption: "Exit");
 
-		if (result == DialogResult.Yes)
+		if (result == System.Windows.Forms.DialogResult.Yes)
 		{
 			System.Windows.Forms.Application.Exit();
 		}

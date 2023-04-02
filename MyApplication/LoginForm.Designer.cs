@@ -1,4 +1,7 @@
-﻿namespace MyApplication
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace MyApplication
 {
 	partial class LoginForm
 	{
@@ -144,12 +147,12 @@
 		#endregion
 
 		private Dtat.Windows.Forms.Label usernameLabel;
-		private Dtat.Windows.Forms.TextBox usernameTextBox;
 		private Dtat.Windows.Forms.Label passwordLabel;
 		private Dtat.Windows.Forms.TextBox passwordTextBox;
 		private Dtat.Windows.Forms.Button loginButton;
 		private Dtat.Windows.Forms.Button resetButton;
 		private Dtat.Windows.Forms.Button registerButton;
 		private Dtat.Windows.Forms.Button exitButton;
+		private Dtat.Windows.Forms.TextBox usernameTextBox;
 	}
 }

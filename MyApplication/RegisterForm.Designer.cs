@@ -1,4 +1,7 @@
-﻿namespace MyApplication
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace MyApplication
 {
 	partial class RegisterForm
 	{
