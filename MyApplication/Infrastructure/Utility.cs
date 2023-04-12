@@ -33,11 +33,5 @@ public static class Utility : object
 		return text;
 	}
 
-	//public static void ShowMessage ()
-	//{
-	//	string messageText = string.Empty;
-	//	System.Windows.Forms.MessageBox.Show(text: "",
-	//		caption: "", icon: MessageBoxIcon.Question, buttons: MessageBoxButtons.YesNo,
-	//		defaultButton: MessageBoxDefaultButton.Button2);
-	//}
+	public static Domain.User? CurrentUser { get; set; }
 }

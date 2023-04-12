@@ -7,6 +7,9 @@ namespace MyApplication;
 public partial class RegisterForm : Infrastructure.BaseForm
 {
 	#region constructor
+	/// <summary>
+	/// Constructor
+	/// </summary>
 	public RegisterForm()
 	{
 		InitializeComponent();
@@ -15,6 +18,9 @@ public partial class RegisterForm : Infrastructure.BaseForm
 
 	#region Events
 	#region Reset
+	/// <summary>
+	/// ResetMethod
+	/// </summary>
 	public void Reset()
 	{
 		usernameTextBox.Text = string.Empty;

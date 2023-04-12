@@ -6,6 +6,9 @@ namespace MyApplication;
 public partial class LoginForm : Infrastructure.BaseForm
 {
 	#region Constructors
+	/// <summary>
+	/// Constructors
+	/// </summary>
 	public LoginForm()
 	{
 		InitializeComponent();
@@ -39,7 +42,7 @@ public partial class LoginForm : Infrastructure.BaseForm
 
 	#region ResetMethod
 	/// <summary>
-	/// Reset
+	/// ResetMethod
 	/// </summary>
 	public void Reset()
 	{
@@ -126,6 +129,8 @@ public partial class LoginForm : Infrastructure.BaseForm
 
 				return;
 			}
+
+			Infrastructure.Utility.CurrentUser = foundedUser;
 		}
 
 		catch (Exception ex)
@@ -176,6 +181,5 @@ public partial class LoginForm : Infrastructure.BaseForm
 		}
 	}
 	#endregion /ExitButton
-
 	#endregion /Events
 }
