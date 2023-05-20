@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyApplication.Admin;
+using System;
+using System.Drawing.Text;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -21,18 +23,18 @@ public partial class MainForm : Form
 	/// <summary>
 	/// UpdateProfileForm
 	/// </summary>
-	private UpdateProfileForm? updateProfileForm { get; set; }
+	private UpdateProfileForm? UpdateProfileForm { get; set; }
 
 	private void UpdateProfileToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		if (updateProfileForm == null || updateProfileForm.IsDisposed)
+		if (UpdateProfileForm == null || UpdateProfileForm.IsDisposed)
 		{
-			updateProfileForm = new UpdateProfileForm();
+			UpdateProfileForm = new UpdateProfileForm();
 
-			updateProfileForm.MdiParent = this;
+			UpdateProfileForm.MdiParent = this;
 		}
 
-		updateProfileForm.Show();
+		UpdateProfileForm.Show();
 
 	}
 	#endregion /UpdateProfileForm
@@ -41,18 +43,18 @@ public partial class MainForm : Form
 	/// <summary>
 	/// ChangePasswordForm
 	/// </summary>
-	private ChangePasswordForm? changePasswordForm { get; set; }
+	private ChangePasswordForm? ChangePasswordForm { get; set; }
 
 	private void ChangePasswordToolStripMenuItem_Click(object sender, EventArgs e)
 	{
-		if (changePasswordForm == null || changePasswordForm.IsDisposed)
+		if (ChangePasswordForm == null || ChangePasswordForm.IsDisposed)
 		{
-			changePasswordForm = new ChangePasswordForm();
+			ChangePasswordForm = new ChangePasswordForm();
 
-			changePasswordForm.MdiParent = this;
+			ChangePasswordForm.MdiParent = this;
 		}
 
-		changePasswordForm.Show();
+		ChangePasswordForm.Show();
 	}
 	#endregion /ChangePasswordForm
 
@@ -97,4 +99,27 @@ public partial class MainForm : Form
 	}
 	#endregion /Exit
 	#endregion /ToolStripMenuItem
+
+	#region UsersToolStripMenuItem
+	private UsersForm? UsersForm { get; set; }
+	private void UsersToolStripMenuItem_Click(object sender, EventArgs e)
+	{
+		if (Infrastructure.Utility.AuthenticatedUser.IsAdmin == true)
+		{
+			if (UsersForm == null || UsersForm.IsDisposed)
+			{
+				UsersForm = new UsersForm();
+				UsersForm.MdiParent = this;
+			}
+			UsersForm.Show();
+		}
+		else
+		{
+			var message =
+				"This Item is just for Admins";
+
+			Infrastructure.MyMessageBox.ErrorMessageBox(message);
+		}
+	}
+	#endregion /UsersToolStripMenuItem
 }

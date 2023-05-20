@@ -63,6 +63,8 @@ public class User : SeedWork.Entity
 
 	[System.ComponentModel.DataAnnotations.Required
 		(AllowEmptyStrings = false)]
+
+	[System.ComponentModel.Browsable (false)]
 	public string Password { get; set; }
 	#endregion /public string Password { get; set; }
 

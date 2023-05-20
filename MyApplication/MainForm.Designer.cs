@@ -104,8 +104,9 @@ namespace MyApplication
 			// usersToolStripMenuItem
 			// 
 			usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-			usersToolStripMenuItem.Size = new Size(127, 26);
+			usersToolStripMenuItem.Size = new Size(224, 26);
 			usersToolStripMenuItem.Text = "&Users";
+			usersToolStripMenuItem.Click += UsersToolStripMenuItem_Click;
 			// 
 			// MainForm
 			// 

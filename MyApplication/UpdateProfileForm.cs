@@ -15,36 +15,32 @@ public partial class UpdateProfileForm : Infrastructure.BaseForm
 	}
 	#endregion /Constructor
 
-	#region ResetMethod
+	#region UpdateProfileForm_Load
+	private void UpdateProfileForm_Load(object sender, EventArgs e)
+	{
+		ResetForm();
+	}
+	#endregion /UpdateProfileForm_Load
+
+	#region ResetButton
+	private void ResetButton_Click(object sender, EventArgs e)
+	{
+		ResetForm();
+	}
+	#endregion /ResetButton
+
+	#region ResetForm
 	/// <summary>
 	/// ResetMethod
 	/// </summary>
-	private void Reset()
+	private void ResetForm()
 	{
-		fullNameTextBox.Text = string.Empty;
-		descriptionTextBox.Text = string.Empty;
-	}
-	#endregion /ResetMethod
+		if (Infrastructure.Utility.AuthenticatedUser == null)
+		{
+			System.Windows.Forms.Application.Exit();
+			return;
+		}
 
-	#region FullNameTextBox
-	private void FullNameTextBox_TextChanged(object sender, EventArgs e)
-	{
-		string fullName = fullNameTextBox.Text;
-		Infrastructure.Utility.FixText(fullName);
-	}
-	#endregion /FullNameTextBox
-
-	#region DescriptionTextBox
-	private void DescriptionTextBox_TextChanged(object sender, EventArgs e)
-	{
-		string description = descriptionTextBox.Text;
-		Infrastructure.Utility.FixText(description);
-	}
-	#endregion /DescriptionTextBox
-
-	#region SaveButton
-	private void SaveButton_Click(object sender, EventArgs e)
-	{
 		Persistence.DatabaseContext? databaseContext = null;
 
 		try
@@ -52,17 +48,25 @@ public partial class UpdateProfileForm : Infrastructure.BaseForm
 			databaseContext =
 				new Persistence.DatabaseContext();
 
-			var username =
-				Infrastructure.Utility.CurrentUser?.Username;
-
-			if (username != null)
-			{
-				var foundedUser =
+			var currentUser =
 				databaseContext.Users
-				.Where(current => current.Username.ToLower() == username.ToLower())
+				.Where(current => current.Id == Infrastructure.Utility.AuthenticatedUser.Id)
 				.FirstOrDefault();
+
+			if (currentUser == null)
+			{
+				System.Windows.Forms.Application.Exit();
+				return;
 			}
-			databaseContext.SaveChanges();
+
+			if (currentUser.IsActive == false)
+			{
+				System.Windows.Forms.Application.Exit();
+				return;
+			}
+
+			fullNameTextBox.Text = currentUser.FullName;
+			descriptionTextBox.Text = currentUser.Description;
 		}
 
 		catch (Exception ex)
@@ -78,12 +82,63 @@ public partial class UpdateProfileForm : Infrastructure.BaseForm
 			databaseContext?.Dispose();
 		}
 	}
-	#endregion SaveButton
+	#endregion /ResetForm
 
-	#region ResetButton
-	private void ResetButton_Click(object sender, EventArgs e)
+	#region SaveButton
+	private void SaveButton_Click(object sender, EventArgs e)
 	{
-		Reset();
+		if (Infrastructure.Utility.AuthenticatedUser == null)
+		{
+			System.Windows.Forms.Application.Exit();
+			return;
+		}
+
+		Persistence.DatabaseContext? databaseContext = null;
+
+		try
+		{
+			databaseContext =
+				new Persistence.DatabaseContext();
+
+			var currentUser =
+				databaseContext.Users
+				.Where(current => current.Id == Infrastructure.Utility.AuthenticatedUser.Id)
+				.FirstOrDefault();
+
+			if (currentUser == null)
+			{
+				System.Windows.Forms.Application.Exit();
+				return;
+			}
+
+			if (currentUser.IsActive == false)
+			{
+				System.Windows.Forms.Application.Exit();
+				return;
+			}
+
+			currentUser.FullName = fullNameTextBox.Text;
+			currentUser.Description = descriptionTextBox.Text;
+
+			databaseContext.SaveChanges();
+
+			Infrastructure.MyMessageBox.InformationMessageBox("your profile updated successfully");
+		}
+
+		catch (Exception ex)
+		{
+			var errorMessage =
+				$"ErrorMessage{ex.Message}";
+
+			Infrastructure.MyMessageBox.ErrorMessageBox(errorMessage);
+		}
+
+		finally
+		{
+			databaseContext?.Dispose();
+		}
+
+		this.Close();
 	}
-	#endregion /ResetButton
+	#endregion SaveButton
 }

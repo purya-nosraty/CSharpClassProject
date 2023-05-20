@@ -58,7 +58,6 @@ namespace MyApplication
 			fullNameTextBox.Name = "fullNameTextBox";
 			fullNameTextBox.Size = new Size(377, 27);
 			fullNameTextBox.TabIndex = 1;
-			fullNameTextBox.TextChanged += FullNameTextBox_TextChanged;
 			// 
 			// descriptionLabel
 			// 
@@ -111,7 +110,6 @@ namespace MyApplication
 			descriptionTextBox.ScrollBars = ScrollBars.Vertical;
 			descriptionTextBox.Size = new Size(377, 128);
 			descriptionTextBox.TabIndex = 6;
-			descriptionTextBox.TextChanged += DescriptionTextBox_TextChanged;
 			// 
 			// UpdateProfileForm
 			// 
@@ -129,6 +127,7 @@ namespace MyApplication
 			MinimumSize = new Size(514, 243);
 			Name = "UpdateProfileForm";
 			Text = "UpdateProfile";
+			Load += UpdateProfileForm_Load;
 			panel1.ResumeLayout(false);
 			panel1.PerformLayout();
 			ResumeLayout(false);

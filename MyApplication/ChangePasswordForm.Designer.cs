@@ -38,7 +38,7 @@ namespace MyApplication
 			confirmNewPasswordLabel = new Dtat.Windows.Forms.Label();
 			confirmNewPasswordTextBox = new Dtat.Windows.Forms.TextBox();
 			changePasswordButtun = new Dtat.Windows.Forms.Button();
-			reesetButton = new Dtat.Windows.Forms.Button();
+			resetButton = new Dtat.Windows.Forms.Button();
 			SuspendLayout();
 			// 
 			// oldPasswordLabel
@@ -106,24 +106,26 @@ namespace MyApplication
 			changePasswordButtun.TabIndex = 6;
 			changePasswordButtun.Text = "Change &Password";
 			changePasswordButtun.UseVisualStyleBackColor = true;
+			changePasswordButtun.Click += ChangePasswordButtun_Click;
 			// 
-			// reesetButton
+			// resetButton
 			// 
-			reesetButton.Location = new Point(356, 111);
-			reesetButton.Name = "reesetButton";
-			reesetButton.Size = new Size(160, 29);
-			reesetButton.TabIndex = 7;
-			reesetButton.Text = "&Reeset";
-			reesetButton.UseVisualStyleBackColor = true;
+			resetButton.Location = new Point(356, 111);
+			resetButton.Name = "resetButton";
+			resetButton.Size = new Size(160, 29);
+			resetButton.TabIndex = 7;
+			resetButton.Text = "&Reset";
+			resetButton.UseVisualStyleBackColor = true;
+			resetButton.Click += ResetButton_Click;
 			// 
 			// ChangePasswordForm
 			// 
 			AcceptButton = changePasswordButtun;
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			CancelButton = reesetButton;
+			CancelButton = resetButton;
 			ClientSize = new Size(528, 153);
-			Controls.Add(reesetButton);
+			Controls.Add(resetButton);
 			Controls.Add(changePasswordButtun);
 			Controls.Add(confirmNewPasswordTextBox);
 			Controls.Add(confirmNewPasswordLabel);
@@ -150,6 +152,6 @@ namespace MyApplication
 		private Dtat.Windows.Forms.Label confirmNewPasswordLabel;
 		private Dtat.Windows.Forms.TextBox confirmNewPasswordTextBox;
 		private Dtat.Windows.Forms.Button changePasswordButtun;
-		private Dtat.Windows.Forms.Button reesetButton;
+		private Dtat.Windows.Forms.Button resetButton;
 	}
 }

@@ -130,7 +130,7 @@ public partial class LoginForm : Infrastructure.BaseForm
 				return;
 			}
 
-			Infrastructure.Utility.CurrentUser = foundedUser;
+			Infrastructure.Utility.AuthenticatedUser = foundedUser;
 		}
 
 		catch (Exception ex)

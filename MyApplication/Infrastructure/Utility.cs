@@ -33,5 +33,5 @@ public static class Utility : object
 		return text;
 	}
 
-	public static Domain.User? CurrentUser { get; set; }
+	public static Domain.User? AuthenticatedUser { get; set; }
 }
